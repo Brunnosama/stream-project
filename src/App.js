@@ -1,7 +1,11 @@
+import { Button } from "react-bootstrap";
 
 function App() {
   return (
-    <p>Plataforma Assista</p>
+    <div>
+      <p>Plataforma Assista</p>
+      <Button variant='primary'>Test</Button>
+    </div>
   );
 }
 
