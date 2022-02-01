@@ -1,0 +1,28 @@
+.header-navbar {
+    background-color: #2e1521;
+}
+
+.header-navbar .navbar-toggler {
+    background-color: #E0CFD8;
+    border: none;
+}
+
+.header-navbar .nav-link {
+    background-color:#2e1521;
+    color: #B8B0B4 !important;
+    text-align: center;
+    border-radius: 3px;
+    margin: 5px;
+    ;
+}
+
+.header-navbar .nav-link.active {
+    box-shadow: 0 0 1em rgba(184, 176, 180, 0.3)
+    ;
+}
+
+@media (min-width: 768px) {
+    .header-navbar .nav-link{
+        margin: 0 5px;
+    }
+}
