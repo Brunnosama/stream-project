@@ -1,8 +1,14 @@
+import { Route, Routes } from "react-router-dom";
 import { HomeView } from "./views/Home";
+import { NotFoundView } from "./views/NotFound";
 
 function App() {
   return (
-    <HomeView />
+    <Routes>
+      <Route path="/" element={<HomeView />} />
+      <Route path="*" element={<NotFoundView />} />
+    </Routes>
+    
   );
 }
 
