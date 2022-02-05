@@ -94,3 +94,11 @@ body {
         background-attachment:fixed;
     }
 }
+
+.grid-video-item .card-video {
+    height: 100%
+}
+.grid-video-item .card-video .card-body{
+    display: flex;
+    flex-direction: column;
+}

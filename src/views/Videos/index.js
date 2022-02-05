@@ -25,16 +25,12 @@ const videos = [
     }
 ]
 
-
 export function VideosView() {
-    const videosElements = videos.map((video) => {
-        return (
-            <Col xs={6} md={4} lg={3} >
-                <CardVideo video={video}/>
-            </Col>
-        )
 
-    })
+    const videosElements = videos.map((video) => (
+        <Col key= {video.id} className='grid-video-item mb-3'xs={6} md={4} lg={3} >
+            <CardVideo video={video} />
+        </Col>));
 
     return (
         <Layout>
@@ -52,9 +48,6 @@ export function VideosView() {
                     {videosElements}
                 </Row>
             </Container>
-
-
-
         </Layout>
     )
 }
