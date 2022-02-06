@@ -5,24 +5,14 @@ import { Layout } from "../../components/Layout";
 const videos = [
     {
         id: 1,
-        name: 'movie_name_here_1',
-        img: 'insert_link_here_1',
+        title: 'Movie 1',
+        img: 'img_alt_text_1',
     },
     {
         id: 2,
-        name: 'movie_name_here_2',
-        img: 'insert_link_here_2',
+        title: 'Movie 2',
+        img: 'img_alt_text_2',
     },
-    {
-        id: 3,
-        name: 'movie_name_here_3',
-        img: 'insert_link_here_3',
-    },
-    {
-        id: 4,
-        name: 'movie_name_here_4',
-        img: 'insert_link_here_4',
-    }
 ]
 
 export function VideosView() {

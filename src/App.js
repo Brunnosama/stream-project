@@ -2,13 +2,15 @@ import { Route, Routes } from "react-router-dom";
 import { HomeView } from "./views/Home";
 import { NotFoundView } from "./views/NotFound";
 import { VideosView } from "./views/Videos";
+import { VideosDetailsView } from "./views/VideosDetails";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<HomeView />} />
-      <Route path="/videos" element={<VideosView />} />
-      <Route path="*" element={<NotFoundView />} />
+      <Route path='/' element={<HomeView />} />
+      <Route path='/videos' element={<VideosView />} />
+      <Route path='/videos/:id' element={<VideosDetailsView />} />
+      <Route path='*' element={<NotFoundView />} />
     </Routes>
     
   );
