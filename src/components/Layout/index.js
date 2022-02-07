@@ -13,3 +13,5 @@ export function Layout({ children }) {
         </>
     )
 }
+
+// CREATE COMPONENTS USED WITHIN MULTIPLE SCREENS IN "COMPONENTES" FOLDER. EX: "components/Layout/Header.js"
