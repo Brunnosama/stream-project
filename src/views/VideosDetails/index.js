@@ -13,6 +13,10 @@ const video = {
         {
             id: 1,
             name:'My Movies'
+        },
+        {
+            id: 2,
+            name:'Oscar Winners'
         }
     ] 
 }

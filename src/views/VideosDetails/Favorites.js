@@ -4,12 +4,12 @@ import { Table } from 'react-bootstrap';
 
 export function Favorites({ favorites }) {
 
-    // YOU CAN DESTRUCTURE IN MANY WAYS, BUT DESTRUCTURE WITH "{ }" WITHIN THE PROPS IS LESS VERBOUS.
+    // YOU CAN DESTRUCTURE IN MANY WAYS, BUT WITHIN THE PROPS IS LESS VERBOUS (REMEMBER TO USE {}).
 
     return (
         <>
             <h2>Favorites</h2>
-            <Table>
+            <Table striped responsive>
                 <thead>
                     <tr>
                         <th>#</th>
