@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap';
 import { Layout } from '../../components/Layout';
 import VideoBg from '../../assets/img/video-bg.png'
 import { Favorites } from './Favorites';
+import { FavoritesForm } from './FavoritesForm';
 
 const video = {
 
@@ -30,6 +31,7 @@ export function VideosDetailsView() {
                 </img>
                 <p>{video.description}</p>
                 <Favorites favorites={video.favorites} />
+                <FavoritesForm />
             </Container>
         </Layout>)
 }
