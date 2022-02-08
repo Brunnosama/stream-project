@@ -91,7 +91,7 @@ body {
         background: linear-gradient(
         90deg,
         rgba(135, 52, 104, 0.9) 0%, rgba(172, 51, 99, 0.9) 100%);
-        background-attachment:fixed;
+        background-attachment: fixed, scroll;
     }
 }
 
