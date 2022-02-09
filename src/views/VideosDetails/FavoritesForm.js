@@ -3,10 +3,20 @@ import { Button, Form } from 'react-bootstrap';
 
 export function FavoritesForm() {
 
-    const [favoriteList, setFavoriteList] = useState('')
+    const [formData, setFormData] = useState({
+        favorite: ''
+    })
+
+    const handleChange = (event) => {
+        const newFormData = {
+            ...formData
+        }
+        newFormData[event.target.name] = event.target.value
+        setFormData(newFormData)
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault()
-
     }
 
     return (
@@ -15,16 +25,20 @@ export function FavoritesForm() {
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="favorites-list">
                     <Form.Label className="mb-0">Select the Favorite list</Form.Label>
-                    <Form.Control 
+                    <Form.Control
                         type="text"
+                        name='favorite'
                         placeholder="Enter list name"
                         required
-                        value={favoriteList}
-                        onChange={(event)=> setFavoriteList(event.target.value)
-                        }/>
+                        value={formData.favorite}
+                        onChange={handleChange} />
                 </Form.Group>
+                <Button
+                    className="mb-3"
+                    type="submit"
+                    variant="dark">Add Video</Button>
             </Form>
-            <Button className="mb-3" type="submit"variant="dark">Add Video</Button>
+
         </>
 
     );
