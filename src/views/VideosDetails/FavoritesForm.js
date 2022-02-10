@@ -3,15 +3,23 @@ import { Button, Form } from 'react-bootstrap';
 
 export function FavoritesForm() {
 
+    // CREATE A HOOK TO PERSIST DATA INSIDE A VARIABLE (HERE, AS AN OBJECT)
     const [formData, setFormData] = useState({
         favorite: ''
     })
 
+    //CREATE A FUNCTION TO HANDLE THE CHANGE OF THE PERSISTED DATA BY PASSING IT THROUGH THE HOOK
     const handleChange = (event) => {
+
+        //CREATE NEW VARIABLE WITH THE ORIGINAL formData BECAUSE THE HOOK PREVENT CHANGES TO THE ORIGINAL STATE
         const newFormData = {
             ...formData
         }
+
+        //IDENTIFY THE PLACE CALLING THE CHANGE (HERE BY THE INPUT "NAME") AND CHANGE JUST THE TARGETED ATRIBUTE
         newFormData[event.target.name] = event.target.value
+        
+        //SEND THE NEW VALUE TO THE PERSISTED STATE THROGH THE HOOK
         setFormData(newFormData)
     }
 
