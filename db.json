@@ -1,0 +1,11 @@
+{
+    "videos": [
+        {
+            "id": 1,
+            "name":"Movie 1",
+            "summary":"Here's a summary",
+            "video":"Here's a img link",
+            "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at eros convallis, congue justo ut, iaculis ex. Proin vel sollicitudin purus. Sed id blandit risus. In vitae ultricies nisi. Phasellus nibh orci, pellentesque sit amet molestie sed, condimentum id est. Pellentesque a iaculis est. Suspendisse potenti. Integer sed nisl laoreet, rhoncus ex eu, auctor tellus."
+        }
+    ]
+}
