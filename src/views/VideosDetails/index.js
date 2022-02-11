@@ -8,12 +8,12 @@ import { FavoritesForm } from './FavoritesForm';
 const video = {
 
     id: 1,
-    title: "Movie 1",
+    title: "Video 1",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at eros convallis, congue justo ut, iaculis ex. Proin vel sollicitudin purus. Sed id blandit risus. In vitae ultricies nisi. Phasellus nibh orci, pellentesque sit amet molestie sed, condimentum id est. Pellentesque a iaculis est. Suspendisse potenti. Integer sed nisl laoreet, rhoncus ex eu, auctor tellus.",
     favorites: [
         {
             id: 1,
-            name:'My Movies'
+            name:'My Videos'
         },
         {
             id: 2,

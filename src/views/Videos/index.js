@@ -5,12 +5,12 @@ import { Layout } from "../../components/Layout";
 const videos = [
     {
         id: 1,
-        title: 'Movie 1',
+        title: 'Video 1',
         img: 'img_alt_text_1',
     },
     {
         id: 2,
-        title: 'Movie 2',
+        title: 'Video 2',
         img: 'img_alt_text_2',
     },
 ]
@@ -25,18 +25,11 @@ export function VideosView() {
     return (
         <Layout>
             <Container>
-                <h4 className="text-md-left">Favorites</h4>
+                <h4 className="text-md-left">Videos</h4>
                 <Row>
                     {videosElements}
                 </Row>
-                <h4 className="text-md-left">Movies</h4>
-                <Row>
-                    {videosElements}
-                </Row>
-                <h4 className="text-md-left">Shows</h4>
-                <Row>
-                    {videosElements}
-                </Row>
+                
             </Container>
         </Layout>
     )
