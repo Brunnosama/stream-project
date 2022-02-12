@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Spinner } from "react-bootstrap";
 import { CardVideo } from "../../components/CardVideo";
 import { Layout } from "../../components/Layout";
 
@@ -26,9 +26,13 @@ export function VideosView() {
     return (
         <Layout>
             <Container>
-                <h4 className="text-md-left">Videos</h4>
+                <h4 className="text-md-left nt-4">Videos</h4>
                 {loading ? (
-                    <p>Loading</p>
+                    <div className='text-center'>
+                    <Spinner animation="border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </Spinner>
+                    </div>
                 ) : (
                     <Row>
                         {videosElements}
