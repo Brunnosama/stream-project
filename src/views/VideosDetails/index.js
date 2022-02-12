@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Spinner } from 'react-bootstrap';
 import { Layout } from '../../components/Layout';
 import VideoBg from '../../assets/img/video-bg.png'
 import { Favorites } from './Favorites';
@@ -10,19 +10,27 @@ import { useEffect } from 'react';
 export function VideosDetailsView() {
 
     const { id } = useParams()
+    const [loading, setLoading] = useState(true)
     const [video, setVideo] = useState()
     useEffect(() => {
         const fetchVideos = async () => {
             const response = await fetch(`http://localhost:3001/videos/${id}?_embed=favorites`)
             const data = await response.json()
             setVideo(data)
+            setLoading(false)
         }
         fetchVideos()
 
     }, [id])
 
-    if(!video) {
-        return null
+    if(loading) {
+        return (
+            <div className='text-center mt-4'>
+            <Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </Spinner>
+            </div> 
+        )
     }
 
     return (
