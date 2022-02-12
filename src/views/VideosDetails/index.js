@@ -6,6 +6,7 @@ import { Favorites } from './Favorites';
 import { FavoritesForm } from './FavoritesForm';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
+import { NotFoundView } from '../NotFound';
 
 export function VideosDetailsView() {
 
@@ -18,14 +19,17 @@ export function VideosDetailsView() {
 
             try {
                 const response = await fetch(`http://localhost:3001/videos/${id}?_embed=favorites`)
+                if (response.status == 404) {
+                    throw new Error('404')
+                }
                 const data = await response.json()
                 setVideo(data)
                 setLoading(false)
-            } catch {
-                setGeneralError('Fail to fetch video data. Reload the page')
+            } catch (error) {
+                const message = error.message == '404' ? '404' : 'Fail to fetch video data. Reload the page.'
+                setGeneralError(message)
                 setLoading(false)
             }
-
         }
         fetchVideos()
 
@@ -41,6 +45,10 @@ export function VideosDetailsView() {
         )
     }
 
+    if (generalError == '404') {
+        return <NotFoundView />
+    }
+
     return (
         <Layout>
             <Container>
@@ -49,8 +57,9 @@ export function VideosDetailsView() {
                 ) : (
                     <>
                         <h1 className="text-left mt-4"><strong>Movie Title: </strong>{video.name}</h1>
-                        <img className="mx-auto d-block" src={VideoBg} alt="img here" width={340} height={230}>
-                        </img>
+
+                        <img className="mx-auto d-block" src={VideoBg} alt="img here" width={340} height={230}/>
+
                         <p>{video.description}</p>
                         <Favorites favorites={video.favorites} />
                         <FavoritesForm />
