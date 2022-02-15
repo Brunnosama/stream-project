@@ -5,7 +5,7 @@ export function FavoritesForm() {
 
     // CREATE A HOOK TO PERSIST DATA INSIDE A VARIABLE (HERE, AS AN OBJECT)
     const [formData, setFormData] = useState({
-        favorite: ''
+        favorites: ''
     })
 
     //CREATE A FUNCTION TO HANDLE THE CHANGE OF THE PERSISTED DATA BY PASSING IT THROUGH THE HOOK
@@ -35,10 +35,10 @@ export function FavoritesForm() {
                     <Form.Label className="mb-0">Select the Favorite list</Form.Label>
                     <Form.Control
                         type="text"
-                        name='favorite'
+                        name='favorites'
                         placeholder="Enter list name"
                         required
-                        value={formData.favorite}
+                        value={formData.favorites}
                         onChange={handleChange} />
                 </Form.Group>
                 <Button
