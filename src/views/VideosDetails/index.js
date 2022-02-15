@@ -19,14 +19,14 @@ export function VideosDetailsView() {
 
             try {
                 const response = await fetch(`http://localhost:3001/videos/${id}?_embed=favorites`)
-                if (response.status == 404) {
+                if (response.status === 404) {
                     throw new Error('404')
                 }
                 const data = await response.json()
                 setVideo(data)
                 setLoading(false)
             } catch (error) {
-                const message = error.message == '404' ? '404' : 'Fail to fetch video data. Reload the page.'
+                const message = error.message === '404' ? '404' : 'Fail to fetch video data. Reload the page.'
                 setGeneralError(message)
                 setLoading(false)
             }
@@ -45,7 +45,7 @@ export function VideosDetailsView() {
         )
     }
 
-    if (generalError == '404') {
+    if (generalError === '404') {
         return <NotFoundView />
     }
 
