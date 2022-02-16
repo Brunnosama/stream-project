@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Alert, Container, Spinner } from 'react-bootstrap';
 import { Layout } from '../../components/Layout';
 import VideoBg from '../../assets/img/video-bg.png'
@@ -14,9 +14,9 @@ export function VideosDetailsView() {
     const [loading, setLoading] = useState(true)
     const [video, setVideo] = useState()
     const [generalError, setGeneralError] = useState()
-    useEffect(() => {
-        const fetchVideos = async () => {
 
+    const fetchVideos = useCallback(
+        async () => {
             try {
                 const response = await fetch(`http://localhost:3001/videos/${id}?_embed=favorites`)
                 if (response.status === 404) {
@@ -30,11 +30,19 @@ export function VideosDetailsView() {
                 setGeneralError(message)
                 setLoading(false)
             }
-        }
+        }, [id]
+    )
+    
+    useEffect(() => {
+
+        
         fetchVideos()
 
-    }, [id])
+    }, [fetchVideos])
 
+    const handleOnRegister = () =>{
+        fetchVideos()
+    }
     if (loading) {
         return (
             <div className='text-center mt-4'>
@@ -58,11 +66,11 @@ export function VideosDetailsView() {
                     <>
                         <h1 className="text-left mt-4"><strong>Movie Title: </strong>{video.name}</h1>
 
-                        <img className="mx-auto d-block" src={VideoBg} alt="img here" width={340} height={230}/>
+                        <img className="mx-auto d-block" src={VideoBg} alt="img here" width={340} height={230} />
 
                         <p>{video.description}</p>
                         <Favorites favorites={video.favorites} />
-                        <FavoritesForm videoId={id}/>
+                        <FavoritesForm videoId={id} onRegister={handleOnRegister} />
                     </>
                 )}
 
