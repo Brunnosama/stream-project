@@ -62,7 +62,7 @@ export function VideosDetailsView() {
 
                         <p>{video.description}</p>
                         <Favorites favorites={video.favorites} />
-                        <FavoritesForm />
+                        <FavoritesForm videoId={id}/>
                     </>
                 )}
 

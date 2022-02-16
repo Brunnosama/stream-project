@@ -31,9 +31,21 @@
   ],
   "favorites": [
     {
-      "name": "My favorite List",
+      "name": "My Favs List",
       "videoId": 1,
       "id": 1
+    },
+    {
+      "listName": "",
+      "name": "Brunno",
+      "videoId": 1,
+      "id": 2
+    },
+    {
+      "listName": "",
+      "name": "Gary",
+      "videoId": 1,
+      "id": 3
     }
   ]
 }
