@@ -1,14 +1,23 @@
 import React, { useState } from 'react';
 import { Alert, Button, Form } from 'react-bootstrap';
 
+//CREATE A FUNCTION TO CLEAN THE INPUTS WITH A EMPTY VALUE, TO USE AS A INITIAL VALUE OF THE STATE
+const initialValue = {
+    name: ''
+}
+
 export function FavoritesForm({videoId}) {
 
     const [generalError, setGeneralError] = useState ()
+
+    //CREATE A SUBMITING MESSAGE ON BUTTON
     const [isSubmiting, setIsSubmiting] = useState(false)
+
+    //CREATE A HOOK TO SHOW IF THE ADDITION TO FAVORITES WAS OK
+    const [showSuccess, setShowSuccess] = useState(false)
+    
     // CREATE A HOOK TO PERSIST DATA INSIDE A VARIABLE (HERE, AS AN OBJECT)
-    const [formData, setFormData] = useState({
-        listName: ''
-    })
+    const [formData, setFormData] = useState(initialValue)
 
     //CREATE A FUNCTION TO HANDLE THE CHANGE OF THE PERSISTED DATA BY PASSING IT THROUGH THE HOOK
     const handleChange = (event) => {
@@ -31,6 +40,8 @@ export function FavoritesForm({videoId}) {
             setIsSubmiting(true)
             //TO CLEAN THE SCREEN OF THE ERROR CASE IF IT'S RELOADING AGAIN:
             setGeneralError(undefined)
+            //TO NOT SHOW SUCCESS ADDITION UNECESSARY
+            setShowSuccess(false)
 
             const body ={
                 ...formData,
@@ -43,6 +54,9 @@ export function FavoritesForm({videoId}) {
                 'Content-Type': 'application/json'
             }
         })
+            // TO SHOW SUCESS WHEN ADDING AND TO CLEAN THE INPUTS VALUES
+            setShowSuccess(true)
+            setFormData(initialValue)
 
         } catch {
             setGeneralError('Failed to register favorites. Try again.')
@@ -58,7 +72,9 @@ export function FavoritesForm({videoId}) {
             {generalError && (
                 <Alert variant='danger'>{generalError}</Alert>
             )}
-
+            {showSuccess && (
+                <Alert variant='success'>Video was added to Favorites!</Alert>
+            )}
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="favorites-list">
                     <Form.Label className="mb-0">Select the Favorite list</Form.Label>
@@ -73,7 +89,9 @@ export function FavoritesForm({videoId}) {
                 <Button
                     className="mb-3"
                     type="submit"
-                    variant="dark">{isSubmiting? 'Sending...' : 'Add Video'}</Button>
+                    variant="dark"
+                    disabled={isSubmiting}
+                    >{isSubmiting? 'Sending...' : 'Add Video'}</Button>
             </Form>
 
         </>
