@@ -5,7 +5,7 @@ import { Alert, Button, Form } from 'react-bootstrap';
 const initialValue = {
     name: ''
 }
-
+// "onRegister" IS A FUNCTION PROPRETY FROM THE PARENT RECEIVED AS PARAMS TO SEND INFO BACK TO THE PARENT WHEN EXECUTED.
 export function FavoritesForm({ videoId, onRegister }) {
 
     const [generalError, setGeneralError] = useState()

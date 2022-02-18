@@ -15,6 +15,7 @@ export function VideosDetailsView() {
     const [video, setVideo] = useState()
     const [generalError, setGeneralError] = useState()
 
+    //CREATE A FUNCTION USING THE HOOK "useCallback" TO ENSURE THAT THE FUNCTION WILL BE CREATED ONLY ONE TIME. THERE FOR, IT COULD BE PUT TO THE "useEffect" DEPENDENCIES TO BE WATCHED WITHOUT FIRING A LOOP. 
     const fetchVideos = useCallback(
         async () => {
             try {
@@ -34,10 +35,11 @@ export function VideosDetailsView() {
     )
     
     useEffect(() => {
-
-        
+        //USE THE LOADING WHEN CHANGING PAGES BUT NOT WHEN UPDATING THE FAVORITES.
+        setLoading(true)
+        // FUNCTIONS CREATED INSIDE HOOKS CANNOT BE CALLED OUTSIDE OF THEM. SO CREATE THEM OUTSIDE SO YOU COULD CALL IT IN DIFFERENT PLACES.
         fetchVideos()
-
+//THE "useEffect" HOOK HAVE DEPENDENCIES THAT ARE WATCHED, SO EVERY TIME THEY CHANGE, THE 'EFFECT' WILL BE ACTIVATED AGAIN:
     }, [fetchVideos])
 
     const handleOnRegister = () =>{
@@ -70,6 +72,7 @@ export function VideosDetailsView() {
 
                         <p>{video.description}</p>
                         <Favorites favorites={video.favorites} />
+                        {/* A CHILD COMPONENT PASSES INFORMATION (OR DATA) TO THE PARENT COMPONENT THROUGH A FUNCTION. THE FUNCTION, CREATED IN THE PARENT COMPONENT, IS SENT AS A PROPERTY TO THE CHILD COMPONENT. THERE, WHEN CALLED TO EXECUTE, IT "INVOKES" THE EXECUTION OF THE FUNCTION RELATED TO THAT PROPERTY ON THE PARENT SIDE: */}
                         <FavoritesForm videoId={id} onRegister={handleOnRegister} />
                     </>
                 )}
