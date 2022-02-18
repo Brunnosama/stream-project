@@ -7,6 +7,7 @@ import { FavoritesForm } from './FavoritesForm';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { NotFoundView } from '../NotFound';
+import { getVideoById } from '../../services/Videos.service';
 
 export function VideosDetailsView() {
 
@@ -19,15 +20,13 @@ export function VideosDetailsView() {
     const fetchVideos = useCallback(
         async () => {
             try {
-                const response = await fetch(`http://localhost:3001/videos/${id}?_embed=favorites`)
-                if (response.status === 404) {
-                    throw new Error('404')
-                }
-                const data = await response.json()
+                const data = await getVideoById (id)
+
                 setVideo(data)
                 setLoading(false)
             } catch (error) {
-                const message = error.message === '404' ? '404' : 'Fail to fetch video data. Reload the page.'
+                const message = error.message === 'Response not OK.' ? '404' 
+                : 'Fail to fetch video data. Reload the page.'
                 setGeneralError(message)
                 setLoading(false)
             }
