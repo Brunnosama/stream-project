@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Alert, Col, Container, Row, Spinner } from "react-bootstrap";
 import { CardVideo } from "../../components/CardVideo";
 import { Layout } from "../../components/Layout";
+import { getVideos } from "../../services/Videos.service";
 
 export function VideosView() {
 
@@ -10,17 +11,17 @@ export function VideosView() {
     const [generalError, setGeneralError] = useState()
 
     useEffect(() => {
-        fetch('http://localhost:3001/videos')
-            .then((response) => response.json())
-            .then(data => {
+
+        const fetchVideos = async () => {
+            try {
+                const data = await getVideos()
                 setVideos(data)
-            })
-            .catch(() => {
+            } catch {
                 setGeneralError('Sorry, but the videos are not available. Reload the page.')
-            })
-            .finally(() => {
-                setLoading(false)
-            })
+            }
+            setLoading(false)
+        }
+        fetchVideos()
     }, [])
 
     const videosElements = videos.map((video) => (
@@ -32,14 +33,14 @@ export function VideosView() {
         <Layout>
             <Container>
                 <h4 className="text-md-left nt-4">Videos</h4>
-                {generalError &&(
+                {generalError && (
                     <Alert variant='danger'>{generalError}</Alert>
                 )}
                 {loading ? (
                     <div className='text-center'>
-                    <Spinner animation="border" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </Spinner>
+                        <Spinner animation="border" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </Spinner>
                     </div>
                 ) : (
                     <Row>
