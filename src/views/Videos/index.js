@@ -11,14 +11,16 @@ export function VideosView() {
     const [generalError, setGeneralError] = useState()
 
     useEffect(() => {
-
+        // TO USE ASYNC FUNCTION WITH "useEffect" YOU NEED TO CREATE A FUNCTION AND USE IT THERE, INTERNALLY, BC "React" CAN'T HANDLE ASYNC/AWAIT ON THE HOOK
         const fetchVideos = async () => {
+            //WITH "async/await" YOU U NEED TO USE "try/catch" TO HANDLE ERROR MESSAGE 
             try {
                 const data = await getVideos()
                 setVideos(data)
             } catch {
                 setGeneralError('Sorry, but the videos are not available. Reload the page.')
             }
+            //TO EXECUTE SOMETHING AFTER "try/catch" JUUST PUT IT UNDER IT
             setLoading(false)
         }
         fetchVideos()

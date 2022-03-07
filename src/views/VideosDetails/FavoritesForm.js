@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Alert, Button, Form } from 'react-bootstrap';
+import { createFavorite } from '../../services/Favorites.service'
 
 //CREATE A FUNCTION TO CLEAN THE INPUTS WITH A EMPTY VALUE, TO USE AS A INITIAL VALUE OF THE STATE
 const initialValue = {
@@ -43,17 +44,12 @@ export function FavoritesForm({ videoId, onRegister }) {
             //TO NOT SHOW SUCCESS ADDITION UNECESSARY
             setShowSuccess(false)
 
-            const body = {
+            const favoriteData = {
                 ...formData,
                 videoId: parseInt(videoId)
             }
-            await fetch('http://localhost:3001/favorites', {
-                method: 'POST',
-                body: JSON.stringify(body),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
+            await createFavorite(favoriteData)
+
             // TO SHOW SUCESS WHEN ADDING AND TO CLEAN THE INPUTS VALUES
             setShowSuccess(true)
             setFormData(initialValue)
