@@ -1,5 +1,7 @@
+import {apiUrl} from './Api.service'
+
 export const createFavorite = async (favoriteData) => {
-    await fetch('http://localhost:3001/favorites', {
+    await fetch(`${apiUrl}/favorites`, {
                 method: 'POST',
                 body: JSON.stringify(favoriteData),
                 headers: {

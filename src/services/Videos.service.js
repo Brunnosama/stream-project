@@ -1,5 +1,7 @@
+import {apiUrl} from './Api.service'
+
 export const getVideoById = async (id) => {
-    const response = await fetch(`http://localhost:3001/videos/${id}?_embed=favorites`)
+    const response = await fetch(`${apiUrl}/videos/${id}?_embed=favorites`)
     if (!response.ok) {
         throw new Error('Response not OK.')
     }
@@ -7,7 +9,7 @@ export const getVideoById = async (id) => {
 }
 
 export const getVideos = async () => {
-    const response = await fetch('http://localhost:3001/videos')
+    const response = await fetch(`${apiUrl}/videos`)
     if (!response.ok) {
         throw new Error('Response not OK.')
     }
