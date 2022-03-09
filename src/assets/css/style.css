@@ -57,12 +57,6 @@
 }
 
 /* FOOTER */
-
-.footer {
-    background-color:#2e1521;
-    color: #E0CFD8; 
-}
-
 html, body, #root {
     height: 100%;
 }
