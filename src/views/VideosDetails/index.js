@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { Alert, Container, Spinner } from 'react-bootstrap';
 import { Layout } from '../../components/Layout';
-import VideoBg from '../../assets/img/video-bg.png'
 import { Favorites } from './Favorites';
 import { FavoritesForm } from './FavoritesForm';
 import { useParams } from 'react-router-dom';
@@ -65,11 +64,14 @@ export function VideosDetailsView() {
                     <Alert variant="danger" className="mt-4">{generalError}</Alert>
                 ) : (
                     <>
-                        <h1 className="text-left mt-4"><strong>Movie Title: </strong>{video.name}</h1>
+                        <h1 className="text-center mt-4"><strong>{video.title}</strong></h1>
+                        <p className="text-center">{video.releaseYear}</p>
 
-                        <img className="mx-auto d-block" src={VideoBg} alt="img here" width={340} height={230} />
+                        <img className="mx-auto d-block" src={video.img} alt={`Here's a ${video.title} poster`} width={340} height={230} />
 
                         <p>{video.description}</p>
+                        <p><strong>Direction: </strong>{video.direction}</p>
+                        <p><strong>Genres: </strong>{video.genres}</p>
                         <Favorites favorites={video.favorites} />
                         {/* A CHILD COMPONENT PASSES INFORMATION (OR DATA) TO THE PARENT COMPONENT THROUGH A FUNCTION. THE FUNCTION, CREATED IN THE PARENT COMPONENT, IS SENT AS A PROPERTY TO THE CHILD COMPONENT. THERE, WHEN CALLED TO EXECUTE, IT "INVOKES" THE EXECUTION OF THE FUNCTION RELATED TO THAT PROPERTY ON THE PARENT SIDE: */}
                         <FavoritesForm videoId={id} onRegister={handleOnRegister} />
