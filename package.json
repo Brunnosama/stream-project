@@ -40,7 +40,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "json-server": "^0.17.0"
-  }
+  "devDependencies": {}
 }
