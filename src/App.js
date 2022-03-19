@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { DashboardView } from "./views/Dashboard";
 import { HomeView } from "./views/Home";
 import { NotFoundView } from "./views/NotFound";
 import { VideosView } from "./views/Videos";
@@ -10,6 +11,7 @@ function App() {
       <Route path='/' element={<HomeView />} />
       <Route path='/videos' element={<VideosView />} />
       <Route path='/videos/:id' element={<VideosDetailsView />} />
+      <Route path='/portal' element={<DashboardView />} />
       <Route path='*' element={<NotFoundView />} />
     </Routes>
     
