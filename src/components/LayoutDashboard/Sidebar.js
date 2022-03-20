@@ -2,13 +2,13 @@ import { CloseButton, Nav } from "react-bootstrap";
 import styled from "styled-components";
 import { SidebarItem } from "./SidebarItem";
 
-const menuItens = [
+const menuItems = [
     {
         to: '/portal',
         text: 'Dashboard'
     },
     {
-        to: 'portal/videos',
+        to: '/portal/videos',
         text: 'Videos'
     }
 ]
@@ -20,7 +20,7 @@ export function Sidebar({ toClose, isOpen }) {
             <p className='h1'>Assista Service</p>
             <hr />
             <Nav variant="pills" className="flex-column">
-                {menuItens.map((item, index) => (
+                {menuItems.map((item, index) => (
                     <SidebarItem key={index} item={item} />
                 ))}
             </Nav>
