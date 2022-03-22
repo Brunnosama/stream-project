@@ -11,7 +11,7 @@ function App() {
       <Route path='/' element={<HomeView />} />
       <Route path='/videos' element={<VideosView />} />
       <Route path='/videos/:id' element={<VideosDetailsView />} />
-      <Route path='/portal' element={<DashboardView />} />
+      <Route path='/dashboard' element={<DashboardView />} />
       <Route path='*' element={<NotFoundView />} />
     </Routes>
     

@@ -12,7 +12,7 @@ export function Topbar({toOpen}) {
                             Fulano
                         </Dropdown.Toggle>
                         <Menu>
-                            <Dropdown.Item>Sair</Dropdown.Item>
+                            <Dropdown.Item>Exit</Dropdown.Item>
                         </Menu>
                     </Dropdown>
                 </Nav>
