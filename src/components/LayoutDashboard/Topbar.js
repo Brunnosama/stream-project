@@ -3,24 +3,35 @@ import styled from "styled-components";
 
 export function Topbar({toOpen}) {
     return (
-        <Navbar bg="light" variant="light" expand="lg">
+        <NavbarStyled variant="light" expand="lg">
             <Container fluid>
-                <Navbar.Toggle onClick={toOpen} />
+                <NavbarToggleStyled variant='light' onClick={toOpen} />
                 <Nav className='ms-auto'>
                     <Dropdown align='end'>
-                        <Dropdown.Toggle variant='light'>
-                            Fulano
-                        </Dropdown.Toggle>
+                        <DropdownToggleStyled variant='light'>
+                            User
+                        </DropdownToggleStyled>
                         <Menu>
                             <Dropdown.Item>Exit</Dropdown.Item>
                         </Menu>
                     </Dropdown>
                 </Nav>
             </Container> 
-        </Navbar>
+        </NavbarStyled>
     )
 }
 
 const Menu = styled(Dropdown.Menu)`
     position: absolute !important;
+    background-color: #E0CFD8;
 `
+const NavbarStyled = styled(Navbar)`
+    background-color: ${props => props.theme.componentBackground};
+`
+const NavbarToggleStyled = styled(Navbar.Toggle)`
+	background-color: #E0CFD8;
+    border: none;`
+
+const DropdownToggleStyled = styled(Dropdown.Toggle)`
+	background-color: #E0CFD8;
+    border: none;`

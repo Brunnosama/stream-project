@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Container } from "react-bootstrap";
 import { Sidebar } from "./Sidebar";
 import { Topbar } from "./Topbar";
 
@@ -15,7 +16,9 @@ export function LayoutDashboard({ children }) {
             <Sidebar isOpen={isSidebarOpen} toClose={closeSidebar} />
             <div className="flex-fill">
                 <Topbar toOpen={openSidebar} />
-                {children}
+                <Container fluid>
+                    {children}
+                </Container>
             </div>
         </div>
 

@@ -15,7 +15,7 @@ const menuItems = [
 
 export function Sidebar({ toClose, isOpen }) {
     return (
-        <SidebarStyled isOpen={isOpen} className='bg-dark text-white d-flex flex-column p-3'>
+        <SidebarStyled isOpen={isOpen} className='text-white d-flex flex-column p-3'>
             <CloseButton onClick={toClose} variant="white" className='ms-auto d-lg-none' />
             <p className='h1'>Assista Service</p>
             <hr />
@@ -30,6 +30,7 @@ export function Sidebar({ toClose, isOpen }) {
 
 const SidebarStyled = styled.header`
     width: 280px;
+    background-color: ${props => props.theme.componentBackground};
     @media (max-width: 991px) {
         position: fixed;
         top: 0;
