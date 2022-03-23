@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { Alert, Container, Spinner } from 'react-bootstrap';
+import { Alert, Container} from 'react-bootstrap';
 import { Layout } from '../../components/Layout';
 import { Favorites } from './Favorites';
 import { FavoritesForm } from './FavoritesForm';
@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { NotFoundView } from '../NotFound';
 import { getVideoById } from '../../services/Videos.service';
+import { Loading } from '../../components/Loading';
 
 export function VideosDetailsView() {
 
@@ -45,11 +46,8 @@ export function VideosDetailsView() {
     }
     if (loading) {
         return (
-            <div className='text-center mt-4'>
-                <Spinner animation="border" role="status">
-                    <span className="visually-hidden">Loading...</span>
-                </Spinner>
-            </div>
+            
+            <Loading />
         )
     }
 
