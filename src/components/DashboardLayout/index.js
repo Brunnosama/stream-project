@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import { Sidebar } from "./Sidebar";
 import { Topbar } from "./Topbar";
 
-export function LayoutDashboard({ children }) {
+export function DashboardLayout({ children }) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false)
     console.log(isSidebarOpen)
 
