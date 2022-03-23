@@ -1,15 +1,15 @@
 import { Alert } from "react-bootstrap";
 import { DashboardTitle } from "../../components/DashboardTitle";
-import { LayoutDashboard } from "../../components/LayoutDashboard";
+import { DashboardLayout } from "../../components/DashboardLayout";
 
 export function DashboardView() {
     return (
-        <LayoutDashboard>
+        <DashboardLayout>
                 <DashboardTitle >
                 Welcome, User
                 </DashboardTitle>
                 <p> Use the menu to manage your data</p>
                 <Alert>Check your email to verify your manage options</Alert>
-        </LayoutDashboard>
+        </DashboardLayout>
     )
 }
