@@ -6,7 +6,7 @@ export function DashboardView() {
     return (
         <DashboardLayout>
                 <DashboardTitle >
-                Welcome, User
+                Welcome, User!
                 </DashboardTitle>
                 <p> Use the menu to manage your data</p>
                 <Alert>Check your email to verify your manage options</Alert>
