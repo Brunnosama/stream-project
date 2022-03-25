@@ -49,6 +49,6 @@ const SidebarStyled = styled.header`
         left: 0;
         margin-left:0;
         margin-top: ${props => props.isOpen ? '0' : '-100%'};
-        transition: all .4s;
+        transition: all .4s; 
     } */
 `
