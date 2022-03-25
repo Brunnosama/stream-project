@@ -26,7 +26,7 @@ export function VideoAdminView(props) {
 
     return (
         <DashboardLayout>
-            <DashboardTitle>
+            <DashboardTitle buttonText='New Video' buttonLink='/dashboard/videos/add'>
                 Registered Videos
             </DashboardTitle>
             {loading ? (
