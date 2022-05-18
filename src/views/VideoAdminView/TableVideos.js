@@ -27,7 +27,7 @@ export function TableVideos({ videos, onClickDelete }) {
                         <td>
                             <div className='d-grid gap-1 d-sm-block'>
                                 <Button size='sm' as={Link} to={`/dashboard/videos/${video.id}`}>Edit</Button>
-                                <Button size='sm' variant="danger" className="ms-sm-1" onClick={() => onClickDelete(video.id)}>Delete</Button>
+                                <Button size='sm' variant="danger" className="ms-sm-1" onClick={() => onClickDelete(video)}>Delete</Button>
                             </div>
 
                         </td>
