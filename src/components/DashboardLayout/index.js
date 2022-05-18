@@ -5,7 +5,6 @@ import { Topbar } from "./Topbar";
 
 export function DashboardLayout({ children }) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-    console.log(isSidebarOpen)
 
     const openSidebar = () => setIsSidebarOpen(true)
     const closeSidebar = () => setIsSidebarOpen(false)

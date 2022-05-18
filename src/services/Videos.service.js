@@ -1,4 +1,4 @@
-import {apiUrl} from './Api.service'
+import { apiUrl } from './Api.service'
 
 export const getVideoById = async (id) => {
     const response = await fetch(`${apiUrl}/videos/${id}?_embed=favorites`)
@@ -14,4 +14,13 @@ export const getVideos = async () => {
         throw new Error('Response not OK.')
     }
     return await response.json()
+}
+
+export const deleteVideo = async (id) => {
+    const response = await fetch(`${apiUrl}/videos/${id}`, {
+        method: 'DELETE'
+    })
+    if (!response.ok) {
+        throw new Error('Response not OK.')
+    }
 }

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { DashboardLayout } from "../../components/DashboardLayout";
 import { DashboardTitle } from "../../components/DashboardTitle";
-import { getVideos } from "../../services/Videos.service";
+import { deleteVideo, getVideos } from "../../services/Videos.service";
 import { TableVideos } from "./TableVideos";
 
 export function VideoAdminView(props) {
@@ -21,8 +21,12 @@ export function VideoAdminView(props) {
 
         }
         fetchVideos()
-
     }, [])
+
+    const handleDeleteVideo = async (id) => {
+        await deleteVideo(id)
+    }
+    
 
     return (
         <DashboardLayout>
@@ -32,7 +36,7 @@ export function VideoAdminView(props) {
             {loading ? (
                 <p>Loading...</p>
             ) : (
-                <TableVideos videos={videos}/>
+                <TableVideos videos={videos} onClickDelete={handleDeleteVideo}/>
             )}
         </DashboardLayout>
     );
