@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { AdminAddVideosView } from "./views/AdminAddVideos";
 import { DashboardView } from "./views/Dashboard";
 import { HomeView } from "./views/Home";
 import { NotFoundView } from "./views/NotFound";
@@ -14,9 +15,10 @@ function App() {
       <Route path='/videos/:id' element={<VideosDetailsView />} />
       <Route path='/dashboard' element={<DashboardView />} />
       <Route path='/dashboard/videos' element={<VideoAdminView />} />
+      <Route path='/dashboard/videos/add' element={<AdminAddVideosView />} />
       <Route path='*' element={<NotFoundView />} />
     </Routes>
-    
+
   );
 }
 
