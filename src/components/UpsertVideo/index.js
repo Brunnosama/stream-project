@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 
-const initialState = {
+const emptyState = {
     title: '',
     releaseYear: '',
     description: '',
@@ -12,7 +12,7 @@ const initialState = {
 }
 
 
-export function UpsertVideo() {
+export function UpsertVideo({ onSubmit, buttonLabel = "Add Video", initialState = emptyState }) {
     const [formData, setFormData] = useState(initialState)
     const handleChange = (event) => {
         const { value, name } = event.target
@@ -20,11 +20,18 @@ export function UpsertVideo() {
             ...formData,
             [name]: value
         })
+        
         //INSTEAD OF CREATING A VARIABLE WITH THE DATA AND ALTERING IT AFTER (LIKE IN FavoritesForm), USE 'formData' AS THE OBJECT AND CHANGE THE 'name' and 'value' DIRECTLY INSIDE IT
     }
 
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        onSubmit(formData)
+
+    }
+
     return (
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <Form.Group className='mb-3' controlId='video-name'>
                 <Form.Label className='mb-0'>Title</Form.Label>
                 <Form.Control
@@ -86,6 +93,7 @@ export function UpsertVideo() {
                     name='genres'
                 />
             </Form.Group>
+            <Button type='submit'>{buttonLabel}</Button>
         </Form>
     )
 }
