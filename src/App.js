@@ -3,6 +3,7 @@ import { AdminAddVideosView } from "./views/AdminAddVideos";
 import { AdminEditVideoView } from "./views/AdminEditVideo";
 import { DashboardView } from "./views/Dashboard";
 import { HomeView } from "./views/Home";
+import { LoginView } from "./views/Login";
 import { NotFoundView } from "./views/NotFound";
 import { VideoAdminView } from "./views/VideoAdminView";
 import { VideosView } from "./views/Videos";
@@ -19,6 +20,7 @@ function App() {
       <Route path='/dashboard/videos/add' element={<AdminAddVideosView />} />
       <Route path='*' element={<NotFoundView />} />
       <Route path='/dashboard/videos/:id' element={<AdminEditVideoView />} />
+      <Route path='/dashboard/login' element={<LoginView />} />
     </Routes>
 
   );
