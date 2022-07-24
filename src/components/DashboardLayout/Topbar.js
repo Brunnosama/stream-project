@@ -1,23 +1,18 @@
 import { Container, Dropdown, Nav, Navbar } from "react-bootstrap";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { logout } from "../../services/Users.service";
+import { userLogout } from "../../store/User/User.actions";
+import { selectUser } from "../../store/User/User.selectors";
 
-const selectUser = (state) => {
-    return state
-}
-
-export function Topbar({toOpen}) {
+export function Topbar({ toOpen }) {
     const user = useSelector(selectUser)
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const handleLogout = () =>{
+    const handleLogout = () => {
         logout()
-        const action ={
-            type: 'USER_LOGOUT'
-        }
-        dispatch(action)
+        dispatch(userLogout())
         navigate('/dashboard/login')
     }
     return (
@@ -34,7 +29,7 @@ export function Topbar({toOpen}) {
                         </Menu>
                     </Dropdown>
                 </Nav>
-            </Container> 
+            </Container>
         </NavbarStyled>
     )
 }
