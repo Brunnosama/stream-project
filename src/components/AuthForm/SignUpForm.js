@@ -75,7 +75,7 @@ export function SignUpForm({ videoId, onRegister }) {
                 <Alert variant='success'>Your register is complete!</Alert>
             )}
             <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-3" controlId="signup-list">
+                <Form.Group className="mb-3" controlId="signup-name">
                     <Form.Label className="mb-0">Name</Form.Label>
                     <Form.Control
                         type="text"
@@ -85,7 +85,7 @@ export function SignUpForm({ videoId, onRegister }) {
                         value={formData.name}
                         onChange={handleChange} />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="signup-list">
+                <Form.Group className="mb-3" controlId="signup-email">
                     <Form.Label className="mb-0">E-mail</Form.Label>
                     <Form.Control
                         type="text"
@@ -95,7 +95,7 @@ export function SignUpForm({ videoId, onRegister }) {
                         value={formData.email}
                         onChange={handleChange} />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="signup-list">
+                <Form.Group className="mb-3" controlId="signup-password">
                     <Form.Label className="mb-0">Password</Form.Label>
                     <Form.Control
                         type="text"
