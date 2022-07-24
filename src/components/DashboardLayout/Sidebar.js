@@ -16,6 +16,12 @@ const menuItems = [
         text: 'Videos',
         checkAllPath: false,
         userTypes: [1]
+    },
+    {
+        to: '/',
+        text: 'Homepage',
+        checkAllPath: true,
+        userTypes: [2]
     }
 ]
 
