@@ -1,7 +1,25 @@
 import { Container, Dropdown, Nav, Navbar } from "react-bootstrap";
+import {useDispatch, useSelector} from "react-redux";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { logout } from "../../services/Users.service";
+
+const selectUser = (state) => {
+    return state
+}
 
 export function Topbar({toOpen}) {
+    const user = useSelector(selectUser)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const handleLogout = () =>{
+        logout()
+        const action ={
+            type: 'USER_LOGOUT'
+        }
+        dispatch(action)
+        navigate('/dashboard/login')
+    }
     return (
         <NavbarStyled variant="light" expand="lg">
             <Container fluid>
@@ -9,10 +27,10 @@ export function Topbar({toOpen}) {
                 <Nav className='ms-auto'>
                     <Dropdown align='end'>
                         <DropdownToggleStyled variant='light'>
-                            User
+                            {user.name}
                         </DropdownToggleStyled>
                         <Menu>
-                            <Dropdown.Item>Exit</Dropdown.Item>
+                            <Dropdown.Item onClick={handleLogout}>Exit</Dropdown.Item>
                         </Menu>
                     </Dropdown>
                 </Nav>

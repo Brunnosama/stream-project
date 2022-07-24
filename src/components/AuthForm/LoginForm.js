@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { login } from "../../services/Users.service";
 
@@ -15,12 +17,20 @@ export function LoginForm() {
         newFormData[name] = event.target.value
         setFormData(newFormData)
     }
-
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const handleSubmit = async (event) => {
         event.preventDefault()
         try {
             setIsSubmiting(true)
-            await login(formData)
+          const userData = await login(formData)
+          console.log('userData', userData)
+            const action = {
+                type: 'USER_LOGIN',
+                payload: userData
+            }
+            dispatch(action)
+            navigate('/dashboard')
         } catch (error) {
             const message = error.message === 'Credentials Invalid.' ? 'Incorrect email or password.' : 'Fail to Login. Please, try again.'
             toast.error(message)
