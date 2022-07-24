@@ -27,7 +27,7 @@ function App() {
       <Route
         path='/dashboard/videos'
         element={
-          <PrivateRoute>
+          <PrivateRoute userTypes={[1]}>
             <VideoAdminView />
           </PrivateRoute>
         }
@@ -35,7 +35,7 @@ function App() {
       <Route
         path='/dashboard/videos/add'
         element={
-          <PrivateRoute>
+          <PrivateRoute userTypes={[1]}>
             <AdminAddVideosView />
           </PrivateRoute>
         }
@@ -44,7 +44,7 @@ function App() {
       <Route
         path='/dashboard/videos/:id'
         element={
-          <PrivateRoute>
+          <PrivateRoute userTypes={[1]}>
             <AdminEditVideoView />
           </PrivateRoute>
         }

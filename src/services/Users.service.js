@@ -9,12 +9,13 @@ export const login = async (credentialsData) => {
             'Content-type': 'application/json'
         }
     })
-        const data = await response.json()
+    const data = await response.json()
     if (!response.ok) {
         const message = data === 'Incorrect password' || data === 'Cannot find user' ? 'Credentials Invalid.' : 'Response not OK.'
         throw new Error(message)
     }
-    const userData ={
+
+    const userData = {
         accessToken: data.accessToken,
         ...data.user
     }
