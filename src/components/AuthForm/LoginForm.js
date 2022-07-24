@@ -34,8 +34,9 @@ export function LoginForm() {
         } catch (error) {
             const message = error.message === 'Credentials Invalid.' ? 'Incorrect email or password.' : 'Fail to Login. Please, try again.'
             toast.error(message)
+            setIsSubmiting(false)
         }
-        setIsSubmiting(false)
+        
     }
 
     return (
