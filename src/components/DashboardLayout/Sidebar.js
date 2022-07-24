@@ -5,11 +5,13 @@ import { SidebarItem } from "./SidebarItem";
 const menuItems = [
     {
         to: '/dashboard',
-        text: 'Dashboard'
+        text: 'Dashboard',
+        checkAllPath: true
     },
     {
         to: '/dashboard/videos',
-        text: 'Videos'
+        text: 'Videos',
+        checkAllPath: false
     }
 ]
 

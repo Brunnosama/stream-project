@@ -20,7 +20,7 @@ export function UpsertVideo({ onSubmit, buttonLabel = "Add Video", initialState 
             ...formData,
             [name]: value
         })
-        
+
         //INSTEAD OF CREATING A VARIABLE WITH THE DATA AND ALTERING IT AFTER (LIKE IN FavoritesForm), USE 'formData' AS THE OBJECT AND CHANGE THE 'name' and 'value' DIRECTLY INSIDE IT
     }
 
