@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { PrivateRoute } from "./components/PrivateRoute";
 import { AdminAddVideosView } from "./views/AdminAddVideos";
 import { AdminEditVideoView } from "./views/AdminEditVideo";
 import { DashboardView } from "./views/Dashboard";
@@ -15,11 +16,39 @@ function App() {
       <Route path='/' element={<HomeView />} />
       <Route path='/videos' element={<VideosView />} />
       <Route path='/videos/:id' element={<VideosDetailsView />} />
-      <Route path='/dashboard' element={<DashboardView />} />
-      <Route path='/dashboard/videos' element={<VideoAdminView />} />
-      <Route path='/dashboard/videos/add' element={<AdminAddVideosView />} />
+      <Route
+        path='/dashboard'
+        element={
+          <PrivateRoute>
+            <DashboardView />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path='/dashboard/videos'
+        element={
+          <PrivateRoute>
+            <VideoAdminView />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path='/dashboard/videos/add'
+        element={
+          <PrivateRoute>
+            <AdminAddVideosView />
+          </PrivateRoute>
+        }
+      />
       <Route path='*' element={<NotFoundView />} />
-      <Route path='/dashboard/videos/:id' element={<AdminEditVideoView />} />
+      <Route
+        path='/dashboard/videos/:id'
+        element={
+          <PrivateRoute>
+            <AdminEditVideoView />
+          </PrivateRoute>
+        }
+      />
       <Route path='/dashboard/login' element={<LoginView />} />
     </Routes>
 
