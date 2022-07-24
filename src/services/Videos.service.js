@@ -38,3 +38,17 @@ export const createVideo = async (videoData) => {
         throw new Error('Response not OK.')
     }
 }
+
+export const updateVideo = async (id, videoData) => {
+    const response = await fetch(`${apiUrl}/videos/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(videoData),
+        headers: {
+            'Content-type': 'application/json'
+        }
+    })
+
+    if (!response.ok) {
+        throw new Error('Response not OK.')
+    }
+}

@@ -1,10 +1,10 @@
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { DashboardLayout } from "../../components/DashboardLayout";
 import { DashboardTitle } from "../../components/DashboardTitle";
 import { UpsertVideo } from "../../components/UpsertVideo";
-import { getVideoById } from "../../services/Videos.service";
+import { getVideoById, updateVideo } from "../../services/Videos.service";
 import { Loading } from "../../components/Loading";
 
 export function AdminEditVideoView() {
@@ -36,12 +36,22 @@ export function AdminEditVideoView() {
         fetchVideo()
 
     }, [id])
+    const navigate = useNavigate()
+    const handleSubmit = async (values) => {
+        try {
+            await updateVideo(id, values)
+            toast.success('Video successfully edited.')
+            navigate('/dashboard/videos')
+        } catch {
+            toast.error('Failed to edit the video. Please, try again.')
+        }
+    }
     console.log(video)
     return (
         <DashboardLayout>
             <DashboardTitle>Edit Video</DashboardTitle>
             {video ? (
-                <UpsertVideo initialState={video} />
+                <UpsertVideo initialState={video} buttonLabel='Keep changes' onSubmit={handleSubmit} />
             ) : (
                 <Loading />
             )}
