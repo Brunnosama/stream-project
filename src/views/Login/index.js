@@ -1,11 +1,12 @@
 import { Container } from "react-bootstrap";
 import styled from "styled-components";
+import { AuthForm } from "../../components/AuthForm";
 
 export function LoginView() {
     return (
         <main className='p-3 d-flex align-items-center'>
-        <ContainerStyled className='rounded'>
-            <p>Login</p>
+        <ContainerStyled className='rounded p-3 p-md-5'>
+            <AuthForm />
         </ContainerStyled>
         </main>
     );
