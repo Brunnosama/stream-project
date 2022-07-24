@@ -39,7 +39,7 @@ export function VideosView() {
             ) : (
                 <Layout>
                     <Container>
-                        <h4 className="text-md-left nt-4">Videos</h4>
+                        <h4 className="text-md-left mt-4">Videos</h4>
                         {generalError && (
                             <Alert variant='danger'>{generalError}</Alert>
                         )}

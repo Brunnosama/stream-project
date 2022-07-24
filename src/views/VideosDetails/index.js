@@ -57,7 +57,7 @@ export function VideosDetailsView() {
 
     return (
         <Layout>
-            <Container>
+            <Container className='col-sm-6'>
                 {generalError ? (
                     <Alert variant="danger" className="mt-4">{generalError}</Alert>
                 ) : (
@@ -65,9 +65,9 @@ export function VideosDetailsView() {
                         <h1 className="text-center mt-4"><strong>{video.title}</strong></h1>
                         <p className="text-center">{video.releaseYear}</p>
 
-                        <img className="mx-auto d-block" src={video.img} alt={`Here's a ${video.title} poster`} width={340} height={230} />
+                        <img className="mx-auto d-block img-thumbnail" src={video.img} alt={`Here's a ${video.title} poster`} width={340} height={230} />
 
-                        <p>{video.description}</p>
+                        <p className="mt-3">{video.description}</p>
                         <p><strong>Direction: </strong>{video.direction}</p>
                         <p><strong>Genres: </strong>{video.genres}</p>
                         <Favorites favorites={video.favorites} />

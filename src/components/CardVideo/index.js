@@ -5,10 +5,10 @@ import styled from "styled-components";
 export function CardVideo({video}) {
     return (
         <CardStyled forwardedAs='article' className='text-center shadow card-video'>
-            <Card.Img src={video.img} alt={`${video.title}`} />
-            <Card.ImgOverlay as={Link} to={`/videos/${video.id}`}>
+            <CardImgStyled className='opacity-75' src={video.img} alt={`${video.title}`} />
+            <Card.ImgOverlay className='text-decoration-none text-light' as={Link} to={`/videos/${video.id}`}>
                 <CardBodyStyled>
-                    <Card.Title >{video.title}</Card.Title>
+                    <Card.Title className='fw-bold bg-dark fs-6' >{video.title}</Card.Title>
                 </CardBodyStyled>
             </Card.ImgOverlay>
         </CardStyled>
@@ -22,4 +22,8 @@ height: 100% ;
 const CardBodyStyled = styled(Card.Body)`
 display: flex;
 flex-direction: column;
+`
+const CardImgStyled = styled(Card.Img)`
+overflow: auto;
+background-size: cover;
 `

@@ -76,7 +76,7 @@ export function UpsertVideo({ onSubmit, buttonLabel = "Add Video", initialState 
             <Form.Group className='mb-3' controlId='video-image'>
                 <Form.Label className='mb-0'>Image</Form.Label>
                 <Form.Control
-                    placeholder='Image'
+                    placeholder='Add image to public/assets/images/'
                     required
                     value={formData.img}
                     onChange={handleChange}
