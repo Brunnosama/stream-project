@@ -1,4 +1,5 @@
-import { apiUrl } from './Api.service'
+import { apiUrl, getAuthorizationHeader } from './Api.service'
+
 
 export const getVideoById = async (id) => {
     const response = await fetch(`${apiUrl}/videos/${id}?_embed=favorites`)
@@ -18,7 +19,9 @@ export const getVideos = async () => {
 
 export const deleteVideo = async (id) => {
     const response = await fetch(`${apiUrl}/videos/${id}`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: getAuthorizationHeader()
+
     })
     if (!response.ok) {
         throw new Error('Response not OK.')
@@ -30,7 +33,8 @@ export const createVideo = async (videoData) => {
         method: 'POST',
         body: JSON.stringify(videoData),
         headers: {
-            'Content-type': 'application/json'
+            'Content-type': 'application/json',
+            ...getAuthorizationHeader()
         }
     })
 
@@ -44,7 +48,8 @@ export const updateVideo = async (id, videoData) => {
         method: 'PUT',
         body: JSON.stringify(videoData),
         headers: {
-            'Content-type': 'application/json'
+            'Content-type': 'application/json',
+            ...getAuthorizationHeader()
         }
     })
 
