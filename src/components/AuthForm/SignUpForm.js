@@ -1,79 +1,58 @@
 import React, { useState } from 'react';
-import { Alert, Button, Form } from 'react-bootstrap';
-// import { createFavorite } from '../../services/Favorites.service'
+import { Button, Form } from 'react-bootstrap';
+import { toast } from 'react-toastify';
+import { createUser } from '../../services/Users.service';
+import { userLogin } from '../../store/User/User.actions';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-//CREATE A FUNCTION TO CLEAN THE INPUTS WITH A EMPTY VALUE, TO USE AS A INITIAL VALUE OF THE STATE
-const initialValue = {
-    name: '',
-    email: '',
-    password: ''
-}
-// "onSignUp" IS A FUNCTION PROPRETY FROM THE PARENT RECEIVED AS PARAMS TO SEND INFO BACK TO THE PARENT WHEN EXECUTED.
-export function SignUpForm({ videoId, onRegister }) {
 
-    const [generalError, setGeneralError] = useState()
-
-    //CREATE A SUBMITING MESSAGE ON BUTTON
+export function SignUpForm() {
     const [isSubmiting, setIsSubmiting] = useState(false)
-
-    //CREATE A HOOK TO SHOW IF THE ADDITION TO FAVORITES WAS OK
-    const [showSuccess, setShowSuccess] = useState(false)
-
-    // CREATE A HOOK TO PERSIST DATA INSIDE A VARIABLE (HERE, AS AN OBJECT)
-    const [formData, setFormData] = useState(initialValue)
-
-    //CREATE A FUNCTION TO HANDLE THE CHANGE OF THE PERSISTED DATA BY PASSING IT THROUGH THE HOOK
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        password: ''
+    })
     const handleChange = (event) => {
-
-        //CREATE NEW VARIABLE WITH THE ORIGINAL formData BECAUSE THE HOOK PREVENT CHANGES TO THE ORIGINAL STATE
         const newFormData = { ...formData }
         const name = event.target.name
-
-        //IDENTIFY THE PLACE CALLING THE CHANGE (HERE BY THE INPUT "NAME") AND CHANGE JUST THE TARGETED ATRIBUTE
         newFormData[name] = event.target.value
-
-        //SEND THE NEW VALUE TO THE PERSISTED STATE THROGH THE HOOK
         setFormData(newFormData)
     }
-
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const handleSubmit = async (event) => {
 
         try {
             event.preventDefault()
             setIsSubmiting(true)
-            //TO CLEAN THE SCREEN OF THE ERROR CASE IF IT'S RELOADING AGAIN:
-            setGeneralError(undefined)
-            //TO NOT SHOW SUCCESS ADDITION UNECESSARY
-            setShowSuccess(false)
 
-            // // const favoriteData = {
-            // //     ...formData,
-            // //     videoId: parseInt(videoId)
-            // // }
-            // await createFavorite(favoriteData)
+            const userData = {
+                ...formData
+            }
+            const createdUserData = await createUser(userData)
+            const action = userLogin(createdUserData)
+            dispatch(action)
+            navigate('/dashboard')
 
-            // TO SHOW SUCESS WHEN ADDING AND TO CLEAN THE INPUTS VALUES
-            setShowSuccess(true)
-            setFormData(initialValue)
-            onRegister()
 
-        } catch {
-            setGeneralError('Failed to SignUp. Try again.')
+        } catch (error) {
+            if (error.message === "Email already exists") {
+                toast.error("This email has already been used")
+            }
+            else {
+                toast.error('Failed to sign up. Please, try again.')
+            }
+            setIsSubmiting(false)
         }
-        setIsSubmiting(false)
+
 
     }
 
     return (
         <>
             <h2>Sign Up</h2>
-
-            {generalError && (
-                <Alert variant='danger'>{generalError}</Alert>
-            )}
-            {showSuccess && (
-                <Alert variant='success'>Your register is complete!</Alert>
-            )}
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="signup-name">
                     <Form.Label className="mb-0">Name</Form.Label>
@@ -102,6 +81,7 @@ export function SignUpForm({ videoId, onRegister }) {
                         name='password'
                         placeholder="Define your password"
                         required
+                        minLength={4}
                         value={formData.password}
                         onChange={handleChange} />
                 </Form.Group>

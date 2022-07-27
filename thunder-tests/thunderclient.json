@@ -1,0 +1,130 @@
+[
+  {
+    "_id": "036be5b1-84e6-46f7-9010-cc649f1942ec",
+    "colId": "3dbf5eb2-9baa-4302-aa88-62c71359389e",
+    "containerId": "",
+    "name": "Auth users",
+    "url": "http://localhost:3001/login",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2022-07-26T17:39:53.673Z",
+    "modified": "2022-07-26T17:39:53.673Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"email\":\"admin@assista.com\",\n    \"password\":\"12345678\"\n}\n",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "3fbafea7-7f82-4fa8-8bcf-3851173113c6",
+    "colId": "3dbf5eb2-9baa-4302-aa88-62c71359389e",
+    "containerId": "",
+    "name": "Register user",
+    "url": "http://localhost:3001/users",
+    "method": "POST",
+    "sortNum": 15000,
+    "created": "2022-07-26T17:39:53.702Z",
+    "modified": "2022-07-26T17:39:53.702Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\r\n    \"name\":\"Client2\",\r\n    \"email\":\"client2@assista.com\",\r\n    \"password\":\"12345678\",\r\n    \"type\": \"2\"\r\n}\r\n",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "9bc12503-c850-4657-a5f9-f4ed4d66bc1f",
+    "colId": "3dbf5eb2-9baa-4302-aa88-62c71359389e",
+    "containerId": "",
+    "name": "Remove user",
+    "url": "http://localhost:3001/users/5",
+    "method": "DELETE",
+    "sortNum": 20000,
+    "created": "2022-07-26T17:39:53.703Z",
+    "modified": "2022-07-27T21:20:41.881Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{}\n",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "9f7b2540-192a-4e88-8666-6d2b7f98e0c8",
+    "colId": "3dbf5eb2-9baa-4302-aa88-62c71359389e",
+    "containerId": "",
+    "name": "List videos",
+    "url": "http://localhost:3001/videos",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-07-26T17:39:53.704Z",
+    "modified": "2022-07-26T17:39:53.704Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "f703b360-0ebb-4ee3-b883-963bd4587ad3",
+    "colId": "3dbf5eb2-9baa-4302-aa88-62c71359389e",
+    "containerId": "",
+    "name": "Add videos",
+    "url": "http://localhost:3001/videos",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2022-07-26T17:39:53.705Z",
+    "modified": "2022-07-26T17:39:53.705Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\r\n      \"title\": \"Thor Love & Thunder 2 \",\r\n      \"releaseYear\": \"2022\",\r\n      \"description\": \"Mighty Thooor!\",\r\n      \"direction\": \"Taika Waititi\",\r\n      \"img\": \"http://localhost:3001/assets/images/thor_love_thunder.jpg\",\r\n      \"genres\": \"Action, Comedy, Drama\"\r\n    }",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "2d3c26e8-3831-460d-b4ad-56a86b5b1102",
+    "colId": "3dbf5eb2-9baa-4302-aa88-62c71359389e",
+    "containerId": "",
+    "name": "Edit user",
+    "url": "http://localhost:3001/users/2",
+    "method": "PATCH",
+    "sortNum": 30000,
+    "created": "2022-07-26T17:39:53.706Z",
+    "modified": "2022-07-26T17:39:53.706Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"type\": 1\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "e951b8e9-891f-4488-ad32-a14c42fb78be",
+    "colId": "3dbf5eb2-9baa-4302-aa88-62c71359389e",
+    "containerId": "",
+    "name": "List users",
+    "url": "http://localhost:3001/users",
+    "method": "GET",
+    "sortNum": 17500,
+    "created": "2022-07-26T17:40:38.203Z",
+    "modified": "2022-07-26T17:40:56.209Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"name\":\"Client2\",\n    \"email\":\"client2@assista.com\",\n    \"password\":\"12345678\",\n    \"type\": \"2\"\n}\n",
+      "form": []
+    },
+    "tests": []
+  }
+]
