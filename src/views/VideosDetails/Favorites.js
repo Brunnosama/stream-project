@@ -10,12 +10,11 @@ export function Favorites({ favorites }) {
         <>
             <h2>Favorites</h2>
             {favorites.length === 0 ? (
-                <Alert> Not on a Favorites list</Alert>
+                <Alert> Not on Favorites</Alert>
             ) : (
                 <Table striped responsive>
                     <thead>
                         <tr>
-                            <th>#</th>
                             <th>Name</th>
                         </tr>
                     </thead>
@@ -23,7 +22,6 @@ export function Favorites({ favorites }) {
                         {/* UNLESS YOU USE THE SAME BODY ELSEWHERE, MAP THE PROPS WITHIN THE ELEMENT ITSELF */}
                         {favorites.map((favorite) => (
                             <tr key={favorite.id}>
-                                <td>{favorite.id}</td>
                                 <td>{favorite.name}</td>
                             </tr>
                         ))}

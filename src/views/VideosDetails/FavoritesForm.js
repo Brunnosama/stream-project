@@ -1,62 +1,30 @@
 import React, { useState } from 'react';
-import { Alert, Button, Form } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+import { AuthForm } from '../../components/AuthForm';
 import { createFavorite } from '../../services/Favorites.service'
+import { selectUser } from '../../store/User/User.selectors';
 
-//CREATE A FUNCTION TO CLEAN THE INPUTS WITH A EMPTY VALUE, TO USE AS A INITIAL VALUE OF THE STATE
-const initialValue = {
-    name: ''
-}
-// "onRegister" IS A FUNCTION PROPRETY FROM THE PARENT RECEIVED AS PARAMS TO SEND INFO BACK TO THE PARENT WHEN EXECUTED.
 export function FavoritesForm({ videoId, onRegister }) {
-
-    const [generalError, setGeneralError] = useState()
-
-    //CREATE A SUBMITING MESSAGE ON BUTTON
+    const user = useSelector(selectUser)
     const [isSubmiting, setIsSubmiting] = useState(false)
 
-    //CREATE A HOOK TO SHOW IF THE ADDITION TO FAVORITES WAS OK
-    const [showSuccess, setShowSuccess] = useState(false)
-
-    // CREATE A HOOK TO PERSIST DATA INSIDE A VARIABLE (HERE, AS AN OBJECT)
-    const [formData, setFormData] = useState(initialValue)
-
-    //CREATE A FUNCTION TO HANDLE THE CHANGE OF THE PERSISTED DATA BY PASSING IT THROUGH THE HOOK
-    const handleChange = (event) => {
-
-        //CREATE NEW VARIABLE WITH THE ORIGINAL formData BECAUSE THE HOOK PREVENT CHANGES TO THE ORIGINAL STATE
-        const newFormData = { ...formData }
-        const name = event.target.name
-
-        //IDENTIFY THE PLACE CALLING THE CHANGE (HERE BY THE INPUT "NAME") AND CHANGE JUST THE TARGETED ATRIBUTE
-        newFormData[name] = event.target.value
-
-        //SEND THE NEW VALUE TO THE PERSISTED STATE THROGH THE HOOK
-        setFormData(newFormData)
-    }
-
-    const handleSubmit = async (event) => {
+    const handleFavorites = async () => {
 
         try {
-            event.preventDefault()
             setIsSubmiting(true)
-            //TO CLEAN THE SCREEN OF THE ERROR CASE IF IT'S RELOADING AGAIN:
-            setGeneralError(undefined)
-            //TO NOT SHOW SUCCESS ADDITION UNECESSARY
-            setShowSuccess(false)
-
             const favoriteData = {
-                ...formData,
-                videoId: parseInt(videoId)
+                videoId: parseInt(videoId),
+                userId: user.id,
+                name: user.name
             }
             await createFavorite(favoriteData)
-
-            // TO SHOW SUCESS WHEN ADDING AND TO CLEAN THE INPUTS VALUES
-            setShowSuccess(true)
-            setFormData(initialValue)
+            toast.success('Video successfully added to Favorites')
             onRegister()
 
         } catch {
-            setGeneralError('Failed to register favorites. Try again.')
+            toast.error('Failed to register favorites. Try again.')
         }
         setIsSubmiting(false)
 
@@ -65,8 +33,13 @@ export function FavoritesForm({ videoId, onRegister }) {
     return (
         <>
             <h2>Add to Favorites</h2>
+            {user ? (
+                <Button onClick={handleFavorites} disabled={isSubmiting}>Favorite</Button>
+            ) : (
+                <AuthForm redirectAfterLogin={false}/>
+            )}
 
-            {generalError && (
+            {/* {generalError && (
                 <Alert variant='danger'>{generalError}</Alert>
             )}
             {showSuccess && (
@@ -89,7 +62,7 @@ export function FavoritesForm({ videoId, onRegister }) {
                     variant="dark"
                     disabled={isSubmiting}
                 >{isSubmiting ? 'Sending...' : 'Add Video'}</Button>
-            </Form>
+            </Form> */}
 
         </>
 

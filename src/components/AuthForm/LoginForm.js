@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { login } from "../../services/Users.service";
 import { userLogin } from "../../store/User/User.actions";
 
-export function LoginForm() {
+export function LoginForm({redirectAfterLogin}) {
     const [isSubmiting, setIsSubmiting] = useState(false)
     const [formData, setFormData] = useState({
         email: '',
@@ -26,7 +26,9 @@ export function LoginForm() {
             setIsSubmiting(true)
             const userData = await login(formData)
             dispatch(userLogin(userData))
-            navigate('/dashboard')
+            if (redirectAfterLogin) {
+              navigate('/dashboard')  
+            }            
         } catch (error) {
             const message = error.message === 'Credentials Invalid.' ? 'Incorrect email or password.' : 'Fail to Login. Please, try again.'
             toast.error(message)

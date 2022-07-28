@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 
-export function SignUpForm() {
+export function SignUpForm({ redirectAfterLogin }) {
     const [isSubmiting, setIsSubmiting] = useState(false)
     const [formData, setFormData] = useState({
         name: '',
@@ -34,9 +34,9 @@ export function SignUpForm() {
             const createdUserData = await createUser(userData)
             const action = userLogin(createdUserData)
             dispatch(action)
-            navigate('/dashboard')
-
-
+            if (redirectAfterLogin) {
+                navigate('/dashboard')
+            }
         } catch (error) {
             if (error.message === "Email already exists") {
                 toast.error("This email has already been used")
@@ -46,8 +46,6 @@ export function SignUpForm() {
             }
             setIsSubmiting(false)
         }
-
-
     }
 
     return (

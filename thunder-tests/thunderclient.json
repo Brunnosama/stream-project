@@ -126,5 +126,19 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "a1a7914d-86c7-4636-b529-e86a43dc44c8",
+    "colId": "3dbf5eb2-9baa-4302-aa88-62c71359389e",
+    "containerId": "",
+    "name": "Favorite register",
+    "url": "http://localhost:3001/favorites",
+    "method": "POST",
+    "sortNum": 40000,
+    "created": "2022-07-28T16:34:35.533Z",
+    "modified": "2022-07-28T16:37:45.219Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]
