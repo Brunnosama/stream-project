@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { Alert, Container, Spinner } from 'react-bootstrap';
+import { Alert, Container} from 'react-bootstrap';
 import { Layout } from '../../components/Layout';
 import { Favorites } from './Favorites';
 import { FavoritesForm } from './FavoritesForm';
@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { NotFoundView } from '../NotFound';
 import { getVideoById } from '../../services/Videos.service';
+import { Loading } from '../../components/Loading';
 
 export function VideosDetailsView() {
 
@@ -45,11 +46,8 @@ export function VideosDetailsView() {
     }
     if (loading) {
         return (
-            <div className='text-center mt-4'>
-                <Spinner animation="border" role="status">
-                    <span className="visually-hidden">Loading...</span>
-                </Spinner>
-            </div>
+            
+            <Loading />
         )
     }
 
@@ -59,7 +57,7 @@ export function VideosDetailsView() {
 
     return (
         <Layout>
-            <Container>
+            <Container className='col-sm-6'>
                 {generalError ? (
                     <Alert variant="danger" className="mt-4">{generalError}</Alert>
                 ) : (
@@ -67,9 +65,9 @@ export function VideosDetailsView() {
                         <h1 className="text-center mt-4"><strong>{video.title}</strong></h1>
                         <p className="text-center">{video.releaseYear}</p>
 
-                        <img className="mx-auto d-block" src={video.img} alt={`Here's a ${video.title} poster`} width={340} height={230} />
+                        <img className="mx-auto d-block img-thumbnail" src={video.img} alt={`Here's a ${video.title} poster`} width={340} height={230} />
 
-                        <p>{video.description}</p>
+                        <p className="mt-3">{video.description}</p>
                         <p><strong>Direction: </strong>{video.direction}</p>
                         <p><strong>Genres: </strong>{video.genres}</p>
                         <Favorites favorites={video.favorites} />

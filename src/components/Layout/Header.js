@@ -2,8 +2,12 @@ import { Navbar, Container, Nav } from 'react-bootstrap';
 import Logo from '../../assets/img/assista-logo.png';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
+import { selectIsUserLoggedIn } from '../../store/User/User.selectors';
 
 export function Header() {
+    const isUserLoggedIn = useSelector(selectIsUserLoggedIn)
+
     return (
         <header>
             <NavbarStyled expand="md">
@@ -16,7 +20,12 @@ export function Header() {
                         <Nav className="me-auto">
                             <NavLinkStyled forwardedAs={Link} to="/">Home</NavLinkStyled>
                             <NavLinkStyled forwardedAs={Link} to="/videos">Video Library</NavLinkStyled>
-                            <NavLinkStyled forwardedAs={Link} to="/profile">Profile</NavLinkStyled>
+                            {isUserLoggedIn ? (
+                                <NavLinkStyled forwardedAs={Link} to="/dashboard">Dashboard</NavLinkStyled>
+                            ) : (
+                                <NavLinkStyled forwardedAs={Link} to="/dashboard/login">Login</NavLinkStyled>
+                            )}
+
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
