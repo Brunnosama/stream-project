@@ -1,70 +1,107 @@
-# Stream Service
+<div id="top"></div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://gitlab.com/Brunnosama/stream-service">
+    <img src="src/assets/img/assista-banner.png" alt="Logo Assista" width="120">
+  </a>
+  <br/>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+<h3 align="center">Assista</h3>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  <p align="center">
+    Plataforma de stream (mocked) que permite gerenciar o catálogo de vídeos
+    <br />
+    <br />
+    <a href="https://gitlab.com/Brunnosama/stream-service"><strong>Explore a documentação »</strong></a>
+    <br />
+    <br />
+    <a href="https://stream-service.vercel.app/">Veja a Demo</a>
+    ·
+    <a href="https://gitlab.com/Brunnosama/stream-service-api">Explore a API</a>
+    ·
+    <a href="https://gitlab.com/Brunnosama/stream-service-api/-/issues">Reporte um Bug</a>
+  </p>
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h4 align='center'>✔️ Projeto Concluído ✔️</h4>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+</div>
+<div align="center">
+<p float="left" align="middle">
+  <img align="top" src="public/images/assista-desktop-1.JPG" width="400" />
+  <img align="top" src="public/images/assista-mobile-1.JPG" width="100" /> 
+  <img align="top" src="public/images/assista-desktop-2.JPG" width="400" />
+</p>
+</div>
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Sumário</summary>
+  <ol>
+    <li>
+      <a href="#sobre-o-projeto">Sobre o Projeto</a>
+      <ul>
+        <li><a href="#construído-com">Construído com</a></li>
+      </ul>
+    </li>
+    <li><a href="#contato">Contato</a></li>
+  </ol>
+</details>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<!-- ABOUT THE PROJECT -->
+## Sobre o Projeto
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<p align="justify">Este projeto tem um objetivo educacional, como parte do curso Bootcamp em Desenvolvimento Front-end com React do <a href="https://curso.infnet.edu.br/bootcamp/desenvolvedor-front-end-react/">Instituto Infnet</a>. O projeto consiste num Web Service mockado de uma plataforma de stream, que permite aos usuários acessarem os vídeos e favoritar os seus vídeos preferidos. Os administradores podem editar o catálogo de vídeos já existente, acrescentando novos vídeos ou excluíndo. Todo o serviço passa por um protocolo de autorização que impede clientes de acessarem as rotas privadas dos administradores. Neste ponto do projeto, ainda não é possível incluir imagens nos novos vídeos cadastrados.</p>
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+### Construído com
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+* [React.js](https://reactjs.org/)
+* [Bootstrap](https://getbootstrap.com)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+<!-- CONTACT -->
+## Contato
 
-### `npm run build` fails to minify
+Brunno Manoel Azevedo Pessôa - apbrunno@gmail.com
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Link do Projeto: [https://gitlab.com/Brunnosama/stream-service](https://gitlab.com/Brunnosama/stream-service)
+
+<p align="right">(<a href="#top">volte ao topo</a>)</p>
+
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
+[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
+[forks-url]: https://github.com/github_username/repo_name/network/members
+[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
+[stars-url]: https://github.com/github_username/repo_name/stargazers
+[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-url]: https://gitlab.com/Brunnosama/stream-service-api/-/issues
+[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/brunno-azevedo-pessoa/
+[product-screenshot]: images/screenshot.png
